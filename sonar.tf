@@ -2,14 +2,14 @@ resource "aws_instance" "mySonarInstance" {
       ami           = "ami-0a59f0e26c55590e9"
       key_name = var.key_name
       instance_type = "t2.micro"
-      vpc_security_group_ids = [sgr-0d683b2d8ebb14f8d]
+      vpc_security_group_ids = [aws_security_group.sonar-sg-2022.id]
       tags= {
         Name = "sonar_instance"
       }
     }
 
  resource "aws_security_group" "sonar-sg-2022" {
-      name        = "security_sonar_group_2022"
+      name        = "security_sonar_group_nov_2022"
       description = "security group for Sonar"
 
       ingress {
